@@ -1,0 +1,36 @@
+<div class="bg-main-light p-4 my-0">
+    <div class=" container py-2">
+        <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
+            {{registerForm.get('email')?.errors|json}}
+
+            <label for="name">Name :</label>
+            <input type="text" formControlName="name" id="name" class="form-control">
+            <div class="alert alert-danger" *ngIf="registerForm.get('name')?.errors">
+                <p *ngIf="registerForm.get('name')?.getError('required')">Required</p>
+                <p *ngIf="registerForm.get('name')?.getError('minlength')">min length should be 3</p>
+                <p *ngIf="registerForm.get('name')?.getError('maxlength')">max length should be 3</p>
+            </div>
+            <label for="email">email :</label>
+            <input type="email" formControlName="email" id="email" class="form-control">
+
+            <div class="alert alert-danger"*ngIf="registerForm.get('email')?.errors">
+                <p *ngIf="registerForm.get('email')?.getError('required')">Required</p>
+                <p *ngIf="registerForm.get('email')?.getError('email')">invalid</p>
+            </div>
+
+            <label for="Password">Password</label>
+            <input type="password" formControlName="password" id="password" class="form-control">
+
+            <label for="rePassword">rePassword</label>
+            <input type="password" formControlName="rePassword" id="repassword" class="form-control">
+
+            <label for="phone">Phone :</label>
+            <input type="tel" formControlName="phone" id="phone" class="form-control">
+
+
+        </form>
+    </div>
+    <div class="container">
+        <button (click)="handleForm()" class="btn-main mx-auto rounded">Register</button>
+    </div>
+</div>
