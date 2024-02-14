@@ -1,11 +1,10 @@
 <div class="bg-main-light p-4 my-0">
     <div class=" container py-2">
-        <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
-            {{registerForm.get('email')?.errors|json}}
+        <form [formGroup]="registerForm" (ngSubmit)="handleForm(registerForm)">
 
             <label for="name">Name :</label>
             <input type="text" formControlName="name" id="name" class="form-control">
-            <div class="alert alert-danger" *ngIf="registerForm.get('name')?.errors">
+            <div class="alert alert-danger" *ngIf="(registerForm.get('name')?.errors&&registerForm.get('name')?.touched)||isValid">
                 <p *ngIf="registerForm.get('name')?.getError('required')">Required</p>
                 <p *ngIf="registerForm.get('name')?.getError('minlength')">min length should be 3</p>
                 <p *ngIf="registerForm.get('name')?.getError('maxlength')">max length should be 3</p>
@@ -13,24 +12,49 @@
             <label for="email">email :</label>
             <input type="email" formControlName="email" id="email" class="form-control">
 
-            <div class="alert alert-danger"*ngIf="registerForm.get('email')?.errors">
+            <div class="alert alert-danger"*ngIf="(registerForm.get('email')?.errors&&registerForm.get('email')?.touched)||isValid">
                 <p *ngIf="registerForm.get('email')?.getError('required')">Required</p>
                 <p *ngIf="registerForm.get('email')?.getError('email')">invalid</p>
             </div>
 
-            <label for="Password">Password</label>
-            <input type="password" formControlName="password" id="password" class="form-control">
 
-            <label for="rePassword">rePassword</label>
-            <input type="password" formControlName="rePassword" id="repassword" class="form-control">
+
+            <label for="Password">Password</label>
+            <input type="password" formControlName="password" id="password" class="form-control" (keyup)="checkSame()">
+
+            <div class="alert alert-danger"*ngIf="(registerForm.get('password')?.errors&&registerForm.get('password')?.touched)||isValid">
+                <p *ngIf="registerForm.get('password')?.getError('required')">Required</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')">Must begin with capital letter and more than 3 chars and less than 8</p>
+
+            </div>
+
+
+
+            <label for="repassword">rePassword</label>
+            <input type="password" formControlName="repassword" id="repassword" class="form-control"(keyup)="checkSame()">
+
+            <div class="alert alert-danger"*ngIf="(registerForm.get('repassword')?.errors&&registerForm.get('repassword')?.touched)||isValid||!typical">
+                <p *ngIf="registerForm.get('repassword')?.getError('required')">Required</p>
+                <p *ngIf="registerForm.get('repassword')?.getError('pattern')">Must begin with capital letter and more than 3 chars and less than 8</p>
+                <p *ngIf="registerForm.get('password')?.value!==registerForm.get('repassword')?.value">password must be same</p>
+
+            </div>
+
+
+
+
 
             <label for="phone">Phone :</label>
             <input type="tel" formControlName="phone" id="phone" class="form-control">
 
+            <div class="alert alert-danger"*ngIf="(registerForm.get('phone')?.errors&&registerForm.get('phone')?.touched)||isValid">
+                <p *ngIf="registerForm.get('phone')?.getError('required')">Required</p>
+                <p *ngIf="registerForm.get('phone')?.getError('pattern')">invalid</p>
+            </div>
 
         </form>
     </div>
     <div class="container">
-        <button (click)="handleForm()" class="btn-main mx-auto rounded">Register</button>
+        <button (click)="handleForm(registerForm)" class="btn-main mx-auto rounded">Register</button>
     </div>
 </div>
