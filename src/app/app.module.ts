@@ -17,7 +17,7 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { NavBlankComponent } from './components/nav-blank/nav-blank.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http"
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import {HttpClientModule} from "@angular/common/http"
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
