@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="bg-main-light p-4 my-0">
+    <div class=" container py-2">
+
+
+        <form [formGroup]="LoginForm" (ngSubmit)="handleForm()">
+
+
+            <label for="email">email :</label>
+            <input type="email" formControlName="email" id="email" class="form-control">
+
+            <div class="alert alert-danger" *ngIf="(LoginForm.get('email')?.errors&&LoginForm.get('email')?.touched)">
+                <p *ngIf="LoginForm.get('email')?.getError('required')">Required</p>
+                <p *ngIf="LoginForm.get('email')?.getError('email')">invalid</p>
+            </div>
+
+
+
+            <label for="Password">Password</label>
+            <input type="password" formControlName="password" id="password" class="form-control">
+
+            <div class="alert alert-danger"
+                *ngIf="(LoginForm.get('password')?.errors&&LoginForm.get('password')?.touched)">
+                <p *ngIf="LoginForm.get('password')?.getError('required')">Required</p>
+                <p *ngIf="LoginForm.get('password')?.getError('pattern')">Must begin with capital letter and more than 6
+                    chars and less than 20</p>
+
+            </div>
+
+
+        </form>
+    </div>
+    <div class="container">
+        <button [disabled]="LoginForm.invalid" (click)="handleForm()" type="submit" class="btn-main mx-auto rounded">
+            <i *ngIf="isloading" class="fas fa-spin fa-spinner"></i> Login</button>
+        <p *ngIf="msgError" class="alert alert-danger">{{msgError}}</p>
+    </div>
+</div>

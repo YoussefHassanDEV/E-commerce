@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,10 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private _httpClient: HttpClient) { 
+
+  constructor(private _httpClient: HttpClient,private _Router:Router) {
   }
-  setRegister(userData:object):Observable<any>
-  {
+  logOut():void{
+    localStorage.removeItem('eToken')
+    this._Router.navigate(['/login'])
+  }
+  setRegister(userData: object): Observable<any> {
     return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, userData);
+  }
+  setLogin(userData: object): Observable<any> {
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userData);
   }
 }

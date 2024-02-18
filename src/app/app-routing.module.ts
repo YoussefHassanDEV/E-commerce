@@ -9,14 +9,15 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { authGuard } from './shared/Guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [authGuard],
     component: BlankLayoutComponent,
     children: [
-
-
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
@@ -31,7 +32,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ]
   },
-
+  {path:'**',component:NotfoundComponent}
 ];
 
 @NgModule({

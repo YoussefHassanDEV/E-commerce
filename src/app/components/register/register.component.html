@@ -9,7 +9,7 @@
             <div class="alert alert-danger" *ngIf="(registerForm.get('name')?.errors&&registerForm.get('name')?.touched)">
                 <p *ngIf="registerForm.get('name')?.getError('required')">Required</p>
                 <p *ngIf="registerForm.get('name')?.getError('minlength')">min length should be 3</p>
-                <p *ngIf="registerForm.get('name')?.getError('maxlength')">max length should be 3</p>
+                <p *ngIf="registerForm.get('name')?.getError('maxlength')">max length should be 18</p>
             </div>
             <label for="email">email :</label>
             <input type="email" formControlName="email" id="email" class="form-control">
@@ -26,7 +26,7 @@
 
             <div class="alert alert-danger"*ngIf="(registerForm.get('password')?.errors&&registerForm.get('password')?.touched)">
                 <p *ngIf="registerForm.get('password')?.getError('required')">Required</p>
-                <p *ngIf="registerForm.get('password')?.getError('pattern')">Must begin with capital letter and more than 3 chars and less than 8</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')">Must begin with capital letter and more than 6 chars and less than 20</p>
 
             </div>
 
@@ -54,6 +54,8 @@
         </form>
     </div>
     <div class="container">
-        <button [disabled]="registerForm.invalid" (click)="handleForm()" type="submit" class="btn-main mx-auto rounded">Register</button>
+        <button [disabled]="registerForm.invalid" (click)="handleForm()" type="submit" class="btn-main mx-auto rounded">
+        <i *ngIf="isloading" class="fas fa-spin fa-spinner"></i>    Register</button>
+        <p *ngIf="msgError" class="alert alert-danger">{{msgError}}</p>
     </div>
 </div>
