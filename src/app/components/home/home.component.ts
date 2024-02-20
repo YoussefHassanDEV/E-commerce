@@ -3,6 +3,9 @@ import { Category } from 'src/app/category';
 import { EcomdatapService } from 'src/app/shared/services/ecomdatap.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CartService } from 'src/app/cart.service';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +14,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 
 })
 export class HomeComponent implements OnInit {
-[x: string]: any;
-  constructor(private _EcomdatapService: EcomdatapService) {
+  [x: string]: any;
+  constructor(private _EcomdatapService: EcomdatapService, private _CartService: CartService, private _ToasterService: ToastrService) {
 
   }
   products: any[] = []
@@ -40,6 +43,18 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  addProduct(id: string) {
+    this._CartService.addToCart(id).subscribe({
+      next: (Response) => {
+        console.log(Response);
+        this._ToasterService.success("product added successfully", "Success") 
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+    })
+  }
 
 
   CategoryOptions: OwlOptions = {
@@ -49,6 +64,9 @@ export class HomeComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplaySpeed: 1000,
     navText: ['', ''],
     responsive: {
       0: {
@@ -73,6 +91,10 @@ export class HomeComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 1000,
+
     navText: ['', ''],
     responsive: {
       0: {

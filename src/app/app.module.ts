@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -17,11 +18,12 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { NavBlankComponent } from './components/nav-blank/nav-blank.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
-import { ReactiveFormsModule, Validators } from '@angular/forms';
-import {HttpClientModule} from "@angular/common/http"
-import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { from } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http"
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { from } from 'rxjs';
     CartComponent,
     ProductsComponent,
     BrandsComponent,
-    CategoriesComponent,
+    CategoriesComponent, 
     FooterComponent,
     LoginComponent,
     RegisterComponent,
@@ -45,10 +47,9 @@ import { from } from 'rxjs';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
-    ,CarouselModule
-
-    
+    BrowserAnimationsModule,
+    CarouselModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

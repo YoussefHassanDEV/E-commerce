@@ -1,8 +1,22 @@
 :host{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(175, 218, 232);
-    min-height:100vh;
-    justify-content: space-between;
-
+}
+.container-fluid{
+    padding-top:60px ;
+}
+.btn-up{
+position: fixed;
+bottom: 10px;
+right:5px;
+z-index: 99;
+width: 40px;
+height: 40px;
+background-color: var(--main-color);
+border: 0px;
+color: var(--light-color);
+align-items: center;
+border-radius: 50%;
+justify-content: center;
 }
