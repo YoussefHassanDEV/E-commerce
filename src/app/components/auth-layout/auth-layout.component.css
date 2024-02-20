@@ -1,0 +1,8 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(175, 218, 232);
+    min-height:100vh;
+    justify-content: space-between;
+
+}

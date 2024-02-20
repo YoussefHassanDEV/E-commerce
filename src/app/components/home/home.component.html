@@ -1,1 +1,57 @@
-<p>home works!</p>
+<div class="p-3 row">
+    <div class="col-8 g-0">
+        <owl-carousel-o [options]="mainSlide">
+          <ng-template carouselSlide><img src="./assets/images/main-slider-1.jpeg"[height]="380" alt=""></ng-template>  
+          <ng-template carouselSlide><img src="./assets/images/main-slider-2.jpeg"[height]="380" alt=""></ng-template>  
+          <ng-template carouselSlide><img src="./assets/images/main-slider-3.jpeg"[height]="380" alt=""></ng-template>  
+        </owl-carousel-o>
+    </div>
+    <div class="col-4 g-0">
+        <img src="./assets/images/slide-1.jpeg" alt="" class="w-100">
+        <img src="./assets/images/slide-2.jpeg" alt="" class="w-100">
+    </div>
+</div>
+
+<section class="py-5">
+    <h3 class="text-center">Product Categories</h3>
+    <owl-carousel-o [options]="CategoryOptions">
+
+        <ng-container *ngFor="let categ of categories; ">
+            <ng-template carouselSlide>
+                <img [src]="categ.image" [alt]="categ.alt" [title]="categ.title" height="400">
+                <h3 class="text-center">{{categ.name}}</h3>
+            </ng-template>
+        </ng-container>
+
+    </owl-carousel-o>
+</section>
+
+
+
+
+<section>
+    <h2>Popular Products</h2>
+    <div class="row">
+        <div class="col-md-2 g-4" *ngFor="let product of products.slice(0,50)">
+            <div class="product p-2 cursor-pointer">
+                <div [routerLink]="['/details',product._id]">
+                    <img [src]="product.imageCover" class="w-100" [alt]="">
+                    <h3 class="h6">{{product.category.name}}</h3>
+                    <h4 class="h6">{{product.title.split(' ').slice(0,2).join(' ')}}</h4>
+                    <div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>{{product.price}}Egp</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star rating-color mb-3"></i>
+                                <p class="text-muted">{{product.ratingsAverage}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-100 btn-main">add Products</button>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -19,6 +19,9 @@ import { AuthLayoutComponent } from './components/auth-layout/auth-layout.compon
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http"
+import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +45,9 @@ import {HttpClientModule} from "@angular/common/http"
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule
+    ,CarouselModule
+
     
   ],
   providers: [],

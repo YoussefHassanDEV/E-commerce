@@ -1,0 +1,13 @@
+:host {
+    background-color: aliceblue;
+}
+
+.product .btn-main {
+    transform: translateY(120%);
+    transition: transform .7s;
+
+}
+
+.product:hover .btn-main {
+    transform: translateY(0%);
+}

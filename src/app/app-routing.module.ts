@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { authGuard } from './shared/Guards/auth.guard';
+import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
+      { path: 'details/:id', component: DetailsComponent },
       { path: 'categories', component: CategoriesComponent },
       { path: 'brands', component: BrandsComponent },
       { path: 'cart', component: CartComponent },
@@ -32,7 +34,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ]
   },
-  {path:'**',component:NotfoundComponent}
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({
