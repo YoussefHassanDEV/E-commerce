@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -18,12 +17,16 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { NavBlankComponent } from './components/nav-blank/nav-blank.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ToastrModule } from 'ngx-toastr';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { from } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
+import { ToastrModule } from 'ngx-toastr';
+import { PaymentComponent } from './components/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     CartComponent,
     ProductsComponent,
     BrandsComponent,
-    CategoriesComponent, 
+    CategoriesComponent,
     FooterComponent,
     LoginComponent,
     RegisterComponent,
@@ -40,7 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     NavAuthComponent,
     NavBlankComponent,
     AuthLayoutComponent,
-    BlankLayoutComponent
+    BlankLayoutComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +53,16 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,
-    ToastrModule.forRoot()
+    CommonModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      closeButton: true,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }

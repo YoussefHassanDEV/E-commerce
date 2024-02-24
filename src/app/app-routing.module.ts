@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { authGuard } from './shared/Guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'brands', component: BrandsComponent },
       { path: 'cart', component: CartComponent },
+      {path:'payment/:id',component:PaymentComponent}
     ]
   },
   {

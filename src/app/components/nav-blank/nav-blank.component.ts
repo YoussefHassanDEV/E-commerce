@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart.service';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
@@ -6,9 +7,18 @@ import { AuthService } from 'src/app/shared/auth.service';
   templateUrl: './nav-blank.component.html',
   styleUrls: ['./nav-blank.component.css']
 })
-export class NavBlankComponent {
+export class NavBlankComponent implements OnInit{
 
-  constructor(private _AuthService: AuthService) { }
+  constructor(private _AuthService: AuthService,private _CartService:CartService) { }
+  cartNumber: any = null;
+  ngOnInit() {
+    this._CartService.cartNumber.subscribe({
+      next:(value)=>{
+        console.log('nav',value);
+        this.cartNumber=value
+      }
+    })
+  }
   logOutUser():void{
     this._AuthService.logOut()
   }

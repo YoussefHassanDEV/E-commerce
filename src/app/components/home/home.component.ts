@@ -5,7 +5,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CartService } from 'src/app/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +13,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 })
 export class HomeComponent implements OnInit {
-  [x: string]: any;
-  constructor(private _EcomdatapService: EcomdatapService, private _CartService: CartService, private _ToasterService: ToastrService) {
+[x: string]: any;
+  constructor(private _EcomdatapService: EcomdatapService,private _CartService:CartService,private _ToastrService: ToastrService) {
 
   }
   products: any[] = []
@@ -26,6 +25,8 @@ export class HomeComponent implements OnInit {
       next: (Response) => {
         console.log(Response);
         this.products = Response.data
+        this._CartService.cartNumber.next(Response.numOfCartItems)
+        
       },
       error: (err) => {
         console.log(err);
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
       next: (Response) => {
         this.categories = Response.data
         console.log(this.categories);
+        this._CartService.cartNumber.next(Response.numOfCartItems)
 
       },
       error: (err) => {
@@ -43,19 +45,22 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  addProduct(id: string) {
-    this._CartService.addToCart(id).subscribe({
-      next: (Response) => {
-        console.log(Response);
-        this._ToasterService.success("product added successfully", "Success") 
-      },
-      error: (err) => {
-        console.log(err);
+addProduct(id:string){
+  this._CartService.addToCart(id).subscribe({
+    next:(Response)=>
+    {
+      console.log(Response);
+      this._ToastrService.success("added to cart");
+      this._CartService.cartNumber.next(Response.numOfCartItems)
 
-      }
-    })
-  }
-
+    },
+    error:(err)=>
+    {
+      console.log(err);
+      
+    }
+  })
+}
 
   CategoryOptions: OwlOptions = {
     loop: true,
