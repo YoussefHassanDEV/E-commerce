@@ -22,16 +22,29 @@
                 <li class="nav-item">
                     <a class="nav-link text-capitalize" routerLinkActive="active-link" routerLink="brands">brands</a>
                 </li>
-
-
-
-
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-capitalize position-relative"  routerLink="cart"><i class="fas fa-shopping-cart text-main fa-2x "></i>
-                    <span class="badge bg-info position-absolute top-0 end-0">{{cartNumber}}</span>
+                    <a class="nav-link text-capitalize position-relative" routerLink="cart"><i
+                            class="fas fa-shopping-cart text-main fa-2x "></i>
+                        <span class="badge bg-info position-absolute top-0 end-0">{{cartNumber}}</span>
                     </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link menu-item dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false" data-mdb-display="static" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-person fa-2x"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">1</a></li>
+                        <li><a class="dropdown-item" href="#">2</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"><i class="fab fa-facebook"></i></a>
@@ -46,7 +59,7 @@
                     <a class="nav-link"><i class="fab fa-linkedin"></i></a>
                 </li>
                 <li class="nav-item d-flex cursor-pointer">
-                   <span class="mx-1 align-self-center cursor-pointer" (click)="logOutUser()">SignOut</span>
+                    <span class="mx-1 align-self-center cursor-pointer" (click)="logOutUser()">SignOut</span>
                 </li>
             </ul>
         </div>

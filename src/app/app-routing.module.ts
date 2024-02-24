@@ -13,6 +13,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { authGuard } from './shared/Guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
     path: '', component: AuthLayoutComponent, children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      {path:'forget-passwords',component:ForgetPasswordComponent},
+      {path:'verify-reset-code',component:VerifyResetCodeComponent}
     ]
   },
   { path: '**', component: NotfoundComponent }

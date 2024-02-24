@@ -21,4 +21,13 @@ export class AuthService {
   setLogin(userData: object): Observable<any> {
     return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userData);
   }
+  forgetPassword(email: any): Observable<any> {
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`,  {email} );
+  }
+  verifyCode(resetCode: any): Observable<any> {
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode`, { resetCode });
+  }
+  resetPassword(resetPasswordForm: object): Observable<any> {
+    return this._httpClient.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword`,  resetPasswordForm );
+  }
 }

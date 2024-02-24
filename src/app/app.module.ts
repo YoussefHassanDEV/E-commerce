@@ -27,6 +27,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     AuthLayoutComponent,
     BlankLayoutComponent,
     PaymentComponent,
+    ForgetPasswordComponent,
+    VerifyResetCodeComponent,
   ],
   imports: [
     BrowserModule,
