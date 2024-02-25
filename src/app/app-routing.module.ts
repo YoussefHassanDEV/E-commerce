@@ -17,6 +17,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { BrandDetailsComponent } from './components/brand-details/brand-details.component';
+import { WhishlistComponent } from './components/whishlist/whishlist.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       {path:'payment/:id',component:PaymentComponent},
       {path:'catgDetails/:id',component:CategoryDetailsComponent},
-      {path:'brandDetails/:id',component:BrandDetailsComponent}
+      {path:'brandDetails/:id',component:BrandDetailsComponent},
+      {path:'whishlist',component:WhishlistComponent}
     ]
   },
   {

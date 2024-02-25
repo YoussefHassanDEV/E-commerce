@@ -30,6 +30,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { WhishlistComponent } from './components/whishlist/whishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
     ForgetPasswordComponent,
     VerifyResetCodeComponent,
     CategoryDetailsComponent,
+    WhishlistComponent,
   ],
   imports: [
     BrowserModule,

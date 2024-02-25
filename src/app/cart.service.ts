@@ -64,5 +64,22 @@ export class CartService {
         headers: this.myToken,
       })
   }  
-
+  addToFavorite(id: any): Observable<any> {
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/wishlist`,    {
+      "productId": id
+    }, {
+      headers: this.myToken,
+    }
+    )
+  }
+  getLoggedFavourite(): Observable<any> {
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/wishlist`, {
+      headers: this.myToken,
+    })
+  }
+  removeWishList(id: any): Observable<any> {
+    return this._HttpClient.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`, {
+      headers: this.myToken,
+    })
+  }
 }

@@ -33,6 +33,7 @@
     <div class="row">
         <div class="col-md-2 g-4" *ngFor="let product of products.slice(0,15)">
             <div class="product p-2 cursor-pointer">
+                <button class="border-0"  (click)="addFavorite(product._id)"><i class="fas fa-heart heart fa-2x"> </i></button>
                 <div [routerLink]="['/details',product._id]">
                     <img [src]="product.imageCover" class="w-100" [alt]="">
                     <h3 class="h6">{{product.category.name}}</h3>
@@ -49,7 +50,6 @@
                 </div>
 
                 <button (click)="addProduct(product._id)" class="w-100 btn-main">add Products</button>
-
             </div>
         </div>
     </div>

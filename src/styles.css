@@ -89,3 +89,10 @@ a:hover {
 .btn-main:hover {
   background-color: #11bd11;
 }
+.heart{
+    color: red;
+    cursor: pointer;
+    top: 5px;
+    right: 5px;
+    z-index: 99;
+}
