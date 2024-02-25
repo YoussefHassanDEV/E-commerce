@@ -41,7 +41,7 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <p>{{product.price}}Egp</p>
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-star rating-color mb-3"></i>
+                                <i [class.rating-color]="product.ratingsAverage>=i" *ngFor="let i of [1,2,3,4,5]" class="fas fa-star rating-color mb-3"></i>
                                 <p class="text-muted">{{product.ratingsAverage}}</p>
                             </div>
                         </div>

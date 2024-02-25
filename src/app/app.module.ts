@@ -18,7 +18,7 @@ import { NavBlankComponent } from './components/nav-blank/nav-blank.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http"
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { from } from 'rxjs';
@@ -65,7 +65,8 @@ import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-
       closeButton: true,
     }),
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 
