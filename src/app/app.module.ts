@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-
     PaymentComponent,
     ForgetPasswordComponent,
     VerifyResetCodeComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,

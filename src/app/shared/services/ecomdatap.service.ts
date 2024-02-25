@@ -20,4 +20,13 @@ export class EcomdatapService {
   getCategories():Observable<any>{
     return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/categories`)
   }
+  getBrands():Observable<any>{
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/brands`)
+  }
+  getCategoriesDetails(id:any):Observable<any>{
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}`)
+  }
+  getBrandsDetails(id:any):Observable<any>{
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/brands/${id}`)
+  }
 }

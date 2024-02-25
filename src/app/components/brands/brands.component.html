@@ -1,1 +1,10 @@
-<p>brands works!</p>
+<section>
+    <div class="justify-content-center row g-4 m-2">
+      <div [routerLink]="['/brandDetails',brand._id]" class="col-sm-6 col-md-4 col-lg-3" *ngFor="let brand of brands">
+        <div class="border border-success p-2 shadow">
+          <img [height]="270" [src]="brand.image" [alt]="brand.name">
+          <h3 class="text-center text-main">{{brand.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </section>

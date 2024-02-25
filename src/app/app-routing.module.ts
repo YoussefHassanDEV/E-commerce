@@ -15,6 +15,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { VerifyResetCodeComponent } from './components/verify-reset-code/verify-reset-code.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { BrandDetailsComponent } from './components/brand-details/brand-details.component';
 
 const routes: Routes = [
   {
@@ -29,7 +31,9 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'brands', component: BrandsComponent },
       { path: 'cart', component: CartComponent },
-      {path:'payment/:id',component:PaymentComponent}
+      {path:'payment/:id',component:PaymentComponent},
+      {path:'catgDetails/:id',component:CategoryDetailsComponent},
+      {path:'brandDetails/:id',component:BrandDetailsComponent}
     ]
   },
   {
