@@ -9,9 +9,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class NavBlankComponent implements OnInit{
   constructor(private _AuthService: AuthService,private _CartService:CartService) { }
-  cartNumber: any = null;
-  @HostListener('window:scroll', ['$event'])
-  
+  cartNumber: any = null;  
   ngOnInit() {
     this._CartService.cartNumber.subscribe({
       next:(value)=>{
